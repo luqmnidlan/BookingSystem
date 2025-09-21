@@ -19,4 +19,11 @@ RUN dotnet publish "BookingSystem.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "BookingSystem.dll"]
+
+# Create a startup script that runs migrations and starts the app
+RUN echo '#!/bin/sh' > /app/start.sh && \
+    echo 'dotnet ef database update' >> /app/start.sh && \
+    echo 'dotnet BookingSystem.dll' >> /app/start.sh && \
+    chmod +x /app/start.sh
+
+ENTRYPOINT ["/app/start.sh"]
