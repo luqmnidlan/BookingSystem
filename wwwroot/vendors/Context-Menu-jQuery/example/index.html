@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="css/StyleSheet.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="../context-menu.js"></script>
+        <link href="../context-menu.css" rel="stylesheet">
+        <title>3-Dot Context Menu - Boardies IT Solutions</title>
+        <script>
+            var tableContextMenu = null;
+
+            $(document).ready(function(){
+                var options = {
+                    openCallBack: function(contextMenu) {
+                        contextMenu.disableMenuItem("Warning Item");
+                    }
+                };
+                tableContextMenu = new ContextMenu("context-menu-items", menuItemClickListener);
+                tableContextMenu.disableMenuItem(1);
+            });
+
+            function menuItemClickListener(menu_item, parent)
+            {
+                if (menu_item.text() === "Re-enable item 2")
+                {
+                    tableContextMenu.enableMenuItem("Item 2");
+                    //As we can't enable item 2 again, then why not disable the menu item to re-enable
+                    tableContextMenu.disableMenuItem(3);
+                }
+                else
+                {
+                    alert("Menu Item Clicked: " + menu_item.text() + "\nRecord ID: " + parent.attr("data-row-id"));
+                }
+            }
+        </script>
+    </head>
+    <body>
+
+        <div class="context-menu-container" id="context-menu-items">
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Re-enable item 2</li>
+                <li class="warning">Warning Item</li>
+                <li class="danger">Risky Item</li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <div class="row header">
+                <div class="col-md-1">
+                    <img src="images/feature_logo.png" alt="logo" />
+                </div>
+
+                <div class="col-md-11">
+                    <h1>Boardies IT Solutions</h1>
+                </div>
+            </div>
+
+            <h2>Adding Context Menu within Table</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Col 1</th>
+                    <th>Col 2</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <td>Item 1</td>
+                    <td>Item 2</td>
+                    <td class="context-menu" data-container-id="context-menu-items" data-row-id="1"></td>
+                </tr>
+                <tr>
+                    <td>Item 3</td>
+                    <td>Item 4 </td>
+                    <td class="context-menu" data-container-id="context-menu-items" data-row-id="2"></td>
+                </tr>
+            </table>
+
+            <h2>Adding Context Menu within P tag</h2>
+            <p>Here is a context menu in a &lt;p&gt; <span class="context-menu" data-container-id="context-menu-items"></span></p>
+
+            <h2>Add context menu to a heading text</h2>
+            <h3 class="context-menu" data-container-id="context-menu-items">Here is an h3 with a context menu</h3>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+* {
+    z-index: 0;
+}
+
+body
+{
+    padding-top: 10px;
+    z-index: 0;
+}
+
+.container
+{
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.header
+{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a30000+0,d50000+100 */
+    background: #a30000; /* Old browsers */
+    background: -moz-linear-gradient(top, #a30000 0%, #d50000 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #a30000 0%,#d50000 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #a30000 0%,#d50000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a30000', endColorstr='#d50000',GradientType=0 ); /* IE6-9 */
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+footer
+{
+    padding-top: 100px;
+}
+

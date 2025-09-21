@@ -1,0 +1,96 @@
+/* ===== MINIMAL CUSTOM CSS - ONLY ESSENTIAL STYLES ===== */
+
+/* Base HTML/Body styles */
+html,
+body {
+    z-index: 2;
+    opacity: 1;
+    height: 100vh;
+}
+
+/* Utility classes */
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+/* Date range picker styles (if used) */
+.daterangepicker .ranges li {
+    color: #73879C;
+}
+
+.daterangepicker .ranges li.active,
+.daterangepicker .ranges li:hover {
+    background: #536A7F;
+    border: 1px solid #536A7F;
+    color: #fff;
+}
+
+.daterangepicker .input-mini {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    box-shadow: none !important;
+}
+
+.daterangepicker .input-mini.active {
+    border: 1px solid #ccc;
+}
+
+.daterangepicker select.monthselect,
+.daterangepicker select.yearselect,
+.daterangepicker select.hourselect,
+.daterangepicker select.minuteselect,
+.daterangepicker select.secondselect,
+.daterangepicker select.ampmselect {
+    font-size: 12px;
+    padding: 1px;
+    height: auto;
+    margin: 0;
+    cursor: default;
+    height: 30px;
+    border: 1px solid #ADB2B5;
+    line-height: 30px;
+    border-radius: 0px !important;
+}
+
+.daterangepicker select.monthselect {
+    margin-right: 2%;
+}
+
+.daterangepicker td.in-range {
+    background: #E4E7EA;
+    color: #73879C;
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+    background-color: #536A7F;
+    color: #fff;
+}
+
+.daterangepicker th.available:hover {
+    background: #eee;
+    color: #34495E;
+}
+
+.daterangepicker:before,
+.daterangepicker:after {
+    content: none;
+}
+
+.daterangepicker .calendar.single {
+    margin: 0 0 4px 0;
+}
+
+.daterangepicker .calendar.single .calendar-table {
+    width: 224px;
+    padding: 0 0 4px 0 !important;
+}
+
+.daterangepicker .calendar.single .calendar-table thead tr:first-child th {
+    padding: 8px 5px;
+}
+

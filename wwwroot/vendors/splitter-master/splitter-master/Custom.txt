@@ -1,0 +1,7 @@
+height:90vh;
+
+	<!-- Splitter -->
+		<link rel="stylesheet" type="text/css" href="vendors/splitter-master/splitter.css"/>
+
+
+<script type="text/javascript" src="vendors/splitter-master/splitter.js"></script>

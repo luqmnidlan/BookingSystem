@@ -1,0 +1,2919 @@
+/* ===== BARBERSHOP BOOKING SYSTEM THEME ===== */
+
+/* Root Variables for Theme Customization */
+:root {
+    --barbershop-primary: #2c3e50;      /* Dark blue-gray */
+    --barbershop-secondary: #e74c3c;     /* Red accent */
+    --barbershop-gold: #f39c12;         /* Gold accent */
+    --barbershop-cream: #f8f9fa;        /* Cream background */
+    --barbershop-dark: #1a252f;         /* Very dark blue */
+    --barbershop-light: #ecf0f1;        /* Light gray */
+    --barbershop-success: #27ae60;       /* Green for success */
+    --barbershop-warning: #f39c12;      /* Orange for warnings */
+    --barbershop-danger: #e74c3c;       /* Red for errors */
+    --barbershop-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    --barbershop-border-radius: 12px;
+    --barbershop-transition: all 0.3s ease;
+    
+    /* Background Image Variables - Using local ammbarbershop.jpg image */
+    --bg-theme-1: url('/images/ammbarbershop.jpg');
+    --bg-theme-2: url('/images/ammbarbershop.jpg');
+    --bg-theme-3: url('/images/ammbarbershop.jpg');
+    --bg-theme-4: url('/images/ammbarbershop.jpg');
+}
+
+/* Background Configuration */
+body {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%), var(--bg-theme-1);
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #2c3e50;
+}
+
+/* Theme-specific background images */
+.theme-bg-1 {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.7) 0%, rgba(118, 75, 162, 0.7) 100%), var(--bg-theme-1) !important;
+}
+
+.theme-bg-2 {
+    background: linear-gradient(135deg, rgba(86, 171, 47, 0.7) 0%, rgba(168, 230, 207, 0.7) 100%), var(--bg-theme-2) !important;
+}
+
+.theme-bg-3 {
+    background: linear-gradient(135deg, rgba(255, 154, 158, 0.7) 0%, rgba(254, 207, 239, 0.7) 100%), var(--bg-theme-3) !important;
+}
+
+.theme-bg-4 {
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.7) 0%, rgba(0, 242, 254, 0.7) 100%), var(--bg-theme-4) !important;
+}
+
+/* Modern Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: #1a1a1a;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+}
+
+.text-muted {
+    color: #4a4a4a !important;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+/* Modern Spacing */
+.p-4 {
+    padding: 2rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 2rem !important;
+}
+
+.gap-3 {
+    gap: 1rem !important;
+}
+
+/* Theme Background Options - Nature Themes */
+.theme-bg-1 { 
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%), 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="mountain1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234a90e2;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%23367ab7;stop-opacity:0.05"/></linearGradient></defs><path d="M0,600 L200,400 L400,500 L600,300 L800,450 L1000,250 L1200,350 L1200,800 L0,800 Z" fill="url(%23mountain1)"/></svg>');
+    background-size: cover;
+    background-attachment: fixed;
+}
+.theme-bg-2 { 
+    background: linear-gradient(135deg, rgba(86, 171, 47, 0.8) 0%, rgba(168, 230, 207, 0.8) 100%), 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="mountain2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23228b22;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%2332cd32;stop-opacity:0.05"/></linearGradient></defs><path d="M0,650 L150,500 L300,550 L450,400 L600,500 L750,350 L900,450 L1050,300 L1200,400 L1200,800 L0,800 Z" fill="url(%23mountain2)"/></svg>');
+    background-size: cover;
+    background-attachment: fixed;
+}
+.theme-bg-3 { 
+    background: linear-gradient(135deg, rgba(255, 154, 158, 0.8) 0%, rgba(254, 207, 239, 0.8) 100%), 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="mountain3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23ff6b6b;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%23ffa8a8;stop-opacity:0.05"/></linearGradient></defs><path d="M0,600 L100,450 L250,500 L400,350 L550,400 L700,250 L850,300 L1000,200 L1200,300 L1200,800 L0,800 Z" fill="url(%23mountain3)"/></svg>');
+    background-size: cover;
+    background-attachment: fixed;
+}
+.theme-bg-4 { 
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.8) 0%, rgba(0, 242, 254, 0.8) 100%), 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="mountain4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%2300bfff;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%2387ceeb;stop-opacity:0.05"/></linearGradient></defs><path d="M0,700 L180,550 L360,600 L540,450 L720,500 L900,350 L1080,400 L1200,300 L1200,800 L0,800 Z" fill="url(%23mountain4)"/></svg>');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Main Container Styling */
+.barbershop-container {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(30px);
+    border-radius: 25px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 
+                0 0 0 1px rgba(255, 255, 255, 0.5);
+    margin: 20px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.barbershop-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--barbershop-secondary), var(--barbershop-gold), var(--barbershop-secondary));
+    border-radius: 20px 20px 0 0;
+}
+
+/* Header Styling */
+.barbershop-header {
+    background: linear-gradient(135deg, var(--barbershop-primary) 0%, var(--barbershop-dark) 100%);
+    color: white;
+    padding: 30px 40px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.barbershop-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.barbershop-header h3 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-shadow: 3px 3px 12px rgba(0,0,0,0.7), 1px 1px 4px rgba(0,0,0,0.9);
+    position: relative;
+    z-index: 2;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+}
+
+.barbershop-header .subtitle {
+    font-size: 1.2rem;
+    opacity: 1;
+    margin-top: 8px;
+    position: relative;
+    z-index: 2;
+    font-weight: 400;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    color: #f8f9fa;
+}
+
+/* Header Button Styling */
+.barbershop-header .btn-outline-light {
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    font-weight: 500;
+}
+
+.barbershop-header .btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.8);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Button Styling */
+.btn-barbershop {
+    background: linear-gradient(135deg, var(--barbershop-secondary) 0%, #c0392b 50%, var(--barbershop-secondary) 100%);
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+    position: relative;
+    overflow: hidden;
+    font-size: 0.9rem;
+}
+
+.btn-barbershop::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-barbershop:hover::before {
+    left: 100%;
+}
+
+.btn-barbershop:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(231, 76, 60, 0.4);
+    color: white;
+}
+
+.btn-barbershop:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.btn-barbershop-secondary {
+    background: linear-gradient(135deg, var(--barbershop-gold) 0%, #e67e22 50%, var(--barbershop-gold) 100%);
+    box-shadow: 0 8px 25px rgba(243, 156, 18, 0.3);
+}
+
+.btn-barbershop-secondary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(243, 156, 18, 0.4);
+    color: white;
+}
+
+.btn-barbershop-secondary:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Table Styling */
+.barbershop-table {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border: none;
+    margin-top: 20px;
+}
+
+.barbershop-table thead {
+    background: linear-gradient(135deg, var(--barbershop-primary) 0%, var(--barbershop-dark) 100%);
+    color: white;
+    position: relative;
+}
+
+.barbershop-table thead::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--barbershop-secondary), var(--barbershop-gold), var(--barbershop-secondary));
+}
+
+.barbershop-table thead th {
+    border: none;
+    padding: 25px 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    position: relative;
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, var(--barbershop-primary) 0%, var(--barbershop-dark) 100%) !important;
+}
+
+.barbershop-table thead th:first-child {
+    border-radius: 16px 0 0 0;
+}
+
+.barbershop-table thead th:last-child {
+    border-radius: 0 16px 0 0;
+}
+
+/* Sortable column headers */
+.barbershop-table thead th.sortable {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #ffffff !important;
+    background: linear-gradient(135deg, var(--barbershop-primary) 0%, var(--barbershop-dark) 100%) !important;
+}
+
+.barbershop-table thead th.sortable:hover {
+    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.barbershop-table thead th.sortable i {
+    color: #ffffff !important;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.barbershop-table thead th.sortable:hover i {
+    opacity: 1;
+}
+
+.barbershop-table tbody tr {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.barbershop-table tbody tr:hover {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.02), rgba(243, 156, 18, 0.02));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--barbershop-secondary);
+}
+
+.barbershop-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.barbershop-table tbody td {
+    padding: 20px;
+    border: none;
+    vertical-align: middle;
+    font-weight: 500;
+    color: #1a1a1a;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.status-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.status-badge:hover::before {
+    left: 100%;
+}
+
+.status-active {
+    background: linear-gradient(135deg, var(--barbershop-success) 0%, #2ecc71 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.status-inactive {
+    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(149, 165, 166, 0.3);
+}
+
+.status-pending {
+    background: linear-gradient(135deg, var(--barbershop-warning) 0%, #e67e22 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+}
+
+/* Search and Filter Styling */
+.barbershop-search {
+    background: white;
+    border: 2px solid rgba(231, 76, 60, 0.2);
+    border-radius: 50px;
+    padding: 15px 25px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.barbershop-search:focus {
+    border-color: var(--barbershop-secondary);
+    box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.15), 0 8px 30px rgba(0, 0, 0, 0.12);
+    outline: none;
+    transform: translateY(-2px);
+}
+
+.barbershop-search::placeholder {
+    color: #6c757d;
+    font-weight: 400;
+}
+
+.barbershop-filter {
+    background: white;
+    border: 2px solid rgba(243, 156, 18, 0.2);
+    border-radius: 50px;
+    padding: 15px 25px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.barbershop-filter:focus {
+    border-color: var(--barbershop-gold);
+    box-shadow: 0 0 0 4px rgba(243, 156, 18, 0.15), 0 8px 30px rgba(0, 0, 0, 0.12);
+    outline: none;
+    transform: translateY(-2px);
+}
+
+/* Action Buttons */
+.action-btn {
+    padding: 10px 14px;
+    border-radius: 25px;
+    border: none;
+    margin: 0 3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.8rem;
+    font-weight: 700;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.action-btn:hover::before {
+    left: 100%;
+}
+
+.action-btn-edit {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.action-btn-delete {
+    background: linear-gradient(135deg, var(--barbershop-danger) 0%, #c0392b 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.action-btn-view {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+}
+
+.action-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.action-btn:active {
+    transform: translateY(-1px) scale(0.95);
+}
+
+/* Loading Spinner */
+.barbershop-spinner {
+    color: var(--barbershop-secondary);
+    font-size: 3rem;
+}
+
+/* Card Styling */
+.barbershop-card {
+    background: white;
+    border-radius: var(--barbershop-border-radius);
+    box-shadow: var(--barbershop-shadow);
+    border: none;
+    overflow: hidden;
+    transition: var(--barbershop-transition);
+}
+
+.barbershop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .barbershop-container {
+        margin: 10px;
+        padding: 20px;
+    }
+    
+    .barbershop-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .barbershop-table {
+        font-size: 0.9rem;
+    }
+    
+    .barbershop-table thead th,
+    .barbershop-table tbody td {
+        padding: 10px 8px;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in {
+    animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+.float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Nature-inspired subtle animations */
+.barbershop-container {
+    animation: gentleGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes gentleGlow {
+    0% { 
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08), 
+                    0 0 0 1px rgba(255, 255, 255, 0.3),
+                    0 0 20px rgba(102, 126, 234, 0.1);
+    }
+    100% { 
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12), 
+                    0 0 0 1px rgba(255, 255, 255, 0.4),
+                    0 0 30px rgba(102, 126, 234, 0.15);
+    }
+}
+
+/* Theme Switcher */
+.theme-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: white;
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: var(--barbershop-shadow);
+}
+
+.theme-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: var(--barbershop-transition);
+}
+
+.theme-option:hover,
+.theme-option.active {
+    border-color: var(--barbershop-secondary);
+    transform: scale(1.1);
+}
+
+/* Additional Barbershop Theme Enhancements */
+.barbershop-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.barbershop-container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Modern Card Enhancements */
+.barbershop-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border: none;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.barbershop-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--barbershop-secondary), var(--barbershop-gold), var(--barbershop-secondary));
+}
+
+.barbershop-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced table styling */
+.barbershop-table tbody tr:nth-child(even) {
+    background: rgba(248, 249, 250, 0.3);
+}
+
+.barbershop-table tbody tr:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Modern Input Group Styling */
+.input-group .input-group-text {
+    background: linear-gradient(135deg, var(--barbershop-secondary) 0%, #c0392b 100%);
+    border: none;
+    color: white;
+    border-radius: 50px 0 0 50px;
+    padding: 15px 20px;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(231, 76, 60, 0.2);
+}
+
+.input-group .form-control {
+    border-left: none;
+    border-radius: 0 50px 50px 0;
+    padding-left: 0;
+}
+
+/* Modern Badge Styling */
+.badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.badge.bg-primary {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%) !important;
+}
+
+.badge.bg-info {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%) !important;
+}
+
+.badge.bg-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%) !important;
+}
+
+.badge.bg-secondary {
+    background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%) !important;
+}
+
+/* Avatar Styling */
+.avatar-circle {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.avatar-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Status indicator dots */
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.status-indicator.active {
+    background: var(--barbershop-success);
+    box-shadow: 0 0 10px rgba(39, 174, 96, 0.5);
+}
+
+.status-indicator.inactive {
+    background: #95a5a6;
+}
+
+.status-indicator.pending {
+    background: var(--barbershop-warning);
+    box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+}
+
+/* Enhanced button hover effects */
+.btn-barbershop:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
+}
+
+.btn-barbershop-secondary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(243, 156, 18, 0.3);
+}
+
+/* Loading animation enhancement */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.barbershop-spinner {
+    animation: spin 1s linear infinite;
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 576px) {
+    .theme-switcher {
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+    }
+    
+    .theme-option {
+        width: 30px;
+        height: 30px;
+        margin: 3px;
+    }
+    
+    .barbershop-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .barbershop-header .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .d-flex.gap-3 {
+        flex-direction: column;
+        gap: 10px !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .theme-switcher,
+    .action-btn {
+        display: none !important;
+    }
+    
+    .barbershop-container {
+        box-shadow: none;
+        background: white !important;
+    }
+    
+    body {
+        background: white !important;
+    }
+}
+
+/* Modal Styling */
+.modal-content {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 25px 30px;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    background: #f8f9fa;
+}
+
+.modal-lg {
+    max-width: 800px;
+}
+
+/* Form validation styling */
+.is-invalid {
+    border-color: #e74c3c !important;
+    box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25) !important;
+}
+
+.form-label {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Alertify customization */
+.alertify .ajs-dialog {
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.alertify .ajs-header {
+    background: linear-gradient(135deg, var(--barbershop-primary), var(--barbershop-dark));
+    color: white;
+    border-radius: 15px 15px 0 0;
+    font-weight: 700;
+}
+
+.alertify .ajs-body {
+    padding: 20px;
+}
+
+.alertify .ajs-footer {
+    border-radius: 0 0 15px 15px;
+    padding: 15px 20px;
+}
+
+.alertify .ajs-button {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 8px 20px;
+}
+
+.alertify .ajs-button.ajs-ok {
+    background: linear-gradient(135deg, var(--barbershop-secondary), #c0392b);
+    color: white;
+    border: none;
+}
+
+.alertify .ajs-button.ajs-cancel {
+    background: #6c757d;
+    color: white;
+    border: none;
+}
+
+/* Original styles preserved */
+tr {
+    cursor: pointer;
+}
+
+.icheckbox_flat-green {
+    border: solid 1px #a5a5a5;
+    background: #FFFFFF;
+    border-radius: 5px;
+    width: 22px;
+    height: 22px;
+}
+
+.icheckbox_flat-green.checked {
+    background: url('green.png') no-repeat;
+    background-position: -22px 0px;
+} 
+
+.quickLinksContainer .quick-list li a {
+    cursor: pointer;
+    color: #333;
+}
+
+.quickLinksContainer .quick-list li a:hover {
+    color: #337ab7;
+}
+
+.addAppWorkflowDropDown {
+    float: right;
+}
+
+/*.appWorkflowContainer .moduleSetContainer .cd-h-timeline .dropdown .dropdown-menu{
+    float: right;
+    margin: -35px 0px 0px -200px;
+}*/
+
+.addAppWorkflowDropDown .dropdown-menu{
+    /*float: right;
+    margin: -35px 0px 0px -210px;*/
+    float: right;
+    margin: 0px 0px 0px -105px;
+    border-radius: 8px;
+    border: 1px solid #D9DEE4;
+}
+
+.addAppWorkflowDropDown button {
+    padding: 8px 15px 7px 15px;
+    /*display: inline-block;
+    width: 37px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    padding: 7px;
+    border-radius: 5px;
+    margin: 0px;
+    border: 1px solid #cbcbcb;
+    border-radius: 20px;
+    background: transparent;
+    margin: 30px 0px 0px -51px;
+    float: right;*/
+}
+
+.addAppWorkflowDropDown .dropdown-menu .dropdown-item {
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #5A738E;
+}
+
+.addAppWorkflowDropDown .dropdown-menu .dropdown-item:hover {
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+    background: #cbcbcb;
+    color: unset;
+}
+
+.appWorkflowModuleSetList .appWorkflowModuleSetItem {
+    overflow-wrap: break-word;
+    inline-size: 150px;
+    overflow-wrap: break-word;
+    position: absolute;
+    left: -15px;
+    top: 0px;
+}
+
+.appWorkflowModuleSetList .appWorkflowModuleSetItem a {
+    width: 150px;
+}
+
+.moduleSetContainer .cd-h-timeline .cd-h-timeline__container {
+    width: 85%;
+    float: left;
+    height: 50px;
+    margin: 0px auto;
+    display: block;
+    left: 0;
+}
+
+.moduleSetContainer .cd-h-timeline__line {
+    top: 33px;
+}
+
+.moduleSetContainer .cd-h-timeline__filling-line {
+    left: -15px;
+    top: -2px;
+    background-color: #31a5f1;
+}
+
+.moduleSetContainer .cd-h-timeline__date:hover::after,
+.moduleSetContainer .cd-h-timeline__date--selected::after,
+.moduleSetContainer .cd-h-timeline__date--older-event::after {
+    border-color: #31a5f1;
+}
+
+.moduleSetContainer .cd-h-timeline__date:hover::after,
+.moduleSetContainer .cd-h-timeline__date--selected::after {
+    background-color: #31a5f1;
+}
+
+.moduleSetContainer .cd-h-timeline__navigation--next:hover {
+    border-color: #31a5f1;
+}
+
+#empApprovalWorkflowForm .cd-h-timeline__event  {
+    max-height: 65vh;
+    /*overflow-x: hidden;
+    overflow-y: auto;*/
+}
+
+.moduleSetContainer .cd-h-timeline__events {
+    overflow: unset;
+    position: absolute;
+    margin: 50px 0px 0px 0px;
+}
+
+#empApprovalWorkflowForm ol .cd-h-timeline__event div #myTabContent .tab-pane .autoApproveContainer {
+    margin: -85px 0px 0px 0px;
+    position: absolute;
+    right: 0;
+}
+
+#empApprovalWorkflowForm ol .cd-h-timeline__event div #myTabContent .tab-pane .autoApproveContainer.singleTab {
+    margin: -55px 0px 0px 0px;
+}
+
+#empApprovalWorkflowForm #myTab {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+#empApprovalWorkflowForm .cd-h-timeline__event  .dataTables_wrapper  {
+    margin: 0px 0px 10px 0px !important;
+}
+
+.cd-h-timeline__events #empApprovalWorkflowForm ol li div .form-group .autoApproveCheckBoxContainer {
+    width: auto;
+    padding: 0px;
+    margin: 12px 0px 0px 20px;
+}
+
+.icheckbox_flat-green.disabled{
+    background: #eeeeee;
+    border: solid 1px #a5a5a5;
+    cursor: not-allowed;
+}
+
+#employee-approval-workflow-datatable tbody .empAppWorkflowTR {
+    cursor: pointer;
+}
+
+.eldmdropdown .btn {
+    position: absolute;
+    z-index: 1;
+    top: -30% !important;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: hsl(0, 0%, 87.3%);
+    border-color: hsl(var(--cd-color-3-h), var(--cd-color-3-s), calc(var(--cd-color-3-l)*0.9));
+    transition: border-color 0.3s;
+    right: 0px;
+    margin-top: 33px;
+    text-align: center !important;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding: 5px;
+}
+
+.eldmdropdown .dropdown-menu {
+    float: right;
+    margin: 55px 10px 0px 105px;
+    border-radius: 8px;
+    border: 1px solid #D9DEE4;
+    padding: 5px;
+    width: 200px !important;
+}
+
+.eldmdropdown .dropdown-menu .dropdown-item {
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #5A738E;
+}
+
+.eldmdropdown .dropdown-menu .dropdown-item:hover {
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+    background: #cbcbcb;
+    color: unset;
+}
+
+.eldmModuleSetList .eldmModuleSetItem {
+    overflow-wrap: break-word;
+    inline-size: 150px;
+    overflow-wrap: break-word;
+    position: absolute;
+    left: -15px;
+    top: 0px;
+}
+
+.eldmModuleSetList .eldmModuleSetItem a {
+    width: 150px;
+}
+
+
+/*#workflow-group-datatable tbody tr {
+    cursor: pointer;
+}*/
+
+.statusSelectionContainer {
+    float: right;
+    width: max-content;
+    margin: 0px;
+    position: absolute;
+    right: 230px;
+    z-index: 1;
+}
+
+.statusSelectionContainer .statusLabelContainer {
+    font-weight: normal;
+    white-space: nowrap;
+    display: inline-block;
+    margin: 0px 3px 0px 0px;
+}
+
+#statusSelection {
+    width: 157px;
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 10px 7px 10px;
+    box-shadow: 5px 5px 10px #0000001a;
+    backdrop-filter: blur(50px);
+    border: 0px solid #c8c8c8;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+#absenceListDateFilter,
+#birthdaysDateFilter,
+#empLeavingDateFilter,
+#onLeaveDateFilter,
+#probationDueDateFilter,
+#contractExpiryDateFilter,
+#alertAnniversaryDateFilter {
+    margin: 0px 0px 0px 10px;
+    padding: 7px 15px 5px 15px;
+    border-radius: 5px;
+}
+
+#absenceListDateFilter .caret,
+#birthdaysDateFilter .caret,
+#empLeavingDateFilter .caret,
+#onLeaveDateFilter .caret,
+#probationDueDateFilter .caret,
+#contractExpiryDateFilter .caret,
+#alertAnniversaryDateFilter .caret {
+    display: none;
+}
+
+#alertAnniversaryDateFilter .selectedDateText {
+    color: #000000 !important;
+}
+
+._AnniversaryAlertsListContainer #yearsOfService {
+    width: 100px !important;
+    height: 29px !important;
+}
+
+._AnniversaryAlertsListContainer .select2-container--default .select2-selection--single,
+._AnniversaryAlertsListContainer .select2-container--default .select2-selection--multiple {
+    min-height: unset !important;
+}
+
+._AnniversaryAlertsListContainer .select2-container--default .select2-search--inline .select2-search__field {
+    padding: 0px 5px !important;
+}
+
+
+.disabledDueDateDays {
+    display: none !important;
+}
+
+.flex-left,
+.flex-right  {
+    /*background: #fffffffa;*/
+}
+
+.rowon  {
+    /*background: #dafcff;*/
+}
+
+#mGroupForm .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    float: unset;
+    white-space: break-spaces;
+}
+
+.appWorkflowTableContainer {
+    max-height: 58vh;
+    margin: 10px 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.appWorkflowTableContainer.singleTab {
+    max-height: 61vh;
+}
+
+._AnniversaryAlertsListContainer .x_panel {
+    /*background: #E74C3C !important;*/
+    color: #515356;
+}
+
+._AnniversaryAlertsListContainer .x_panel .x_content #datatable-anniversaryAlerts-list tbody tr.selected,
+._AnniversaryAlertsListContainer .x_panel .x_content #datatable-anniversaryAlerts-list tbody tr:hover {
+    background-color: transparent !important;
+}
+
+._AnniversaryAlertsListContainer .x_panel .x_content #datatable-anniversaryAlerts-list tbody tr td {
+    border: none;
+}
+
+#PreviewReport_wrapper .dt-buttons {
+    position: absolute;
+    right: 10px;
+    top: -37px;
+}
+
+#ytdTransactions {
+    float: right;
+}
+
+#ModalYTDTransactionsView #claimtransaction-current-datatable select {
+    width: 100px;
+}
+
+#ModalYTDTransactionsView #claimtransaction-current-datatable .select2-container--default .select2-selection--single .select2-selection__rendered{
+    color: #555 !important;
+}
+
+.FormSubmitUOM .UnitOfMeasurementSetupCode,
+.FormSubmitUOM .UOMSCode {
+    text-transform: uppercase;
+}
+
+
+.bulkApprovalContainer .filterContainer{
+    background-color: rgba(255, 255, 255, 0.85);
+    /*backdrop-filter: blur(50px);*/
+    border-radius: 10px;
+    padding: 15px 15px 30px 15px;
+    position:relative;
+}
+
+.bulkApprovalContainer .filterContainer .moduleTabContainer {
+    display: inline-block;
+    margin: 0px 0px 0px 10px;
+}
+
+.bulkApprovalContainer .filterContainer h3,
+.bulkApprovalContainer .filterContainer .searchInputContainer {
+    display: inline-table;
+}
+
+.bulkApprovalContainer .filterContainer h3 {
+    float: left;
+    width: 12%;
+    font-size: 20px;
+}
+
+.bulkApprovalContainer .filterContainer .searchInputContainer {
+    width: 250px;
+    float: right;
+}
+
+.bulkApprovalContainer .filterContainer .searchInputContainer .searchText {
+    border-radius: 20px 0px 0px 20px;
+    /*border-right: none;*/
+    box-shadow: none;
+}
+
+.bulkApprovalContainer .filterContainer .searchInputContainer .input-group-addon {
+    border-radius: 0px 20px 20px 0px;
+    background: #FFFFFF;
+}
+
+.bulkApprovalContainer .filterContainer .moduleTabContainer .tabBtn {
+    border: none;
+    border-radius: 7px;
+}
+
+.bulkApprovalContainer .filterContainer .moduleTabContainer .tabBtn.btn-light {
+    background: transparent;
+}
+
+.bulkApprovalContainer .filterContainer .moduleTabContainer .nav-pills>li>a {
+    color: #828282;
+    padding: 8px 20px;
+}
+
+.bulkApprovalContainer .filterContainer .moduleTabContainer .nav-pills>li.active>a,
+.bulkApprovalContainer .filterContainer .moduleTabContainer .nav-pills>li.active>a:focus,
+.bulkApprovalContainer .filterContainer .moduleTabContainer .nav-pills>li.active>a:hover {
+    background: #31a5f1;
+    color: #FFFFFF;
+}
+
+.bulkApprovalContainer .filterContainer .moduleTabContainer .nav-pills>li>a>.badge {
+    padding: 4px 0px 0px 0px;
+    font-weight: unset;
+    color: #FFFFFF;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+}
+
+.bulkApprovalContainer .filterContainer .moduleTabContainer .nav-pills>li.active>a>.badge {
+    color: #828282;
+}
+
+.baContainer {
+/*    margin: 10px 0px 20px 0px;*/
+    margin: 10px 0px 10px 0px;
+    display: inline-block;
+}
+
+.appDateAndAppStatusFilterContainer {
+/*    margin: 10px 0px 20px 0px;*/
+    margin: 10px 0px 10px 0px;
+    display: inline-block;
+    float: right;
+}
+
+.appDateAndAppStatusFilterContainer .appDateAndAppStatusFilterText {
+    display: inline-table;
+
+    margin: 0px 10px 0px 0px;
+}
+
+.appDateAndAppStatusFilterContainer #applicationDateFilter {
+    display: inline-table;
+    margin: 0px 10px 0px 0px;
+    min-width: 265px;
+}
+
+.appDateAndAppStatusFilterContainer #applicationDateFilter .caret {
+    margin: 0px 0px 0px 10px;
+}
+
+.appDateAndAppStatusFilterContainer .select2-container {
+    width: 150px !important;
+    float: right;
+    display: inline-table;
+}
+
+.appDateAndAppStatusFilterContainer .select2-container--default .select2-selection--single,
+.appDateAndAppStatusFilterContainer .select2-container--default .select2-selection--multiple {
+    border-radius: 20px !important;
+}
+
+.bulkActionSelectorContainer {
+    width: 180px;
+    background-color: #fff;
+    border-radius: 0;
+    min-height: 38px;
+    box-shadow: 5px 5px 10px rgb(0 0 0 / 10%);
+    /*border: 1px solid #dddddd;*/
+    border: none;
+    border-radius: 20px;
+    color: #828282 !important;
+    display: inline-block;
+}
+
+.bulkApprovalConfirmBtn, .bulkApprovalCancelBtn{
+    width: 130px;
+    border: none;
+    display: inline-block;
+    margin: 2px 0px 0px 15px;
+}
+
+.bulkApprovalCancelBtn {
+    background: #C4C4C4 !important;
+    color: #FFFFFF !important;
+}
+
+.bulkApprovalCancelBtn:hover {
+    background: #d5d5d5 !important;
+}
+
+.bulkActionSelectorContainer .baText {
+    padding: 0px 10px;
+}
+
+.bulkActionSelectorContainer .select2-container {
+    width: 99px !important;
+}
+
+.bulkActionSelectorContainer .select2-container .selection .select2-selection--single, 
+.bulkActionSelectorContainer .select2-container .selection .select2-selection--multiple {
+    border: none;
+    /*background: pink;*/
+    border-radius: 0px 20px 20px 0px;
+    border-left: 1px solid #C4C4C4;
+    color: #828282 !important;
+}
+
+.bulkActionSelectorContainer .select2-container .selection .select2-selection--single .select2-selection__rendered {
+    color: #828282 !important;
+}
+
+.bulk-approval-datatable .form-control[disabled], 
+.bulk-approval-datatable .form-control[readonly], 
+.bulk-approval-datatable fieldset[disabled] .form-control,
+.bulk-approval-datatable .select2-container--disabled .selection .select2-selection--single,
+.bulk-approval-datatable .icheckbox_flat-green.disabled {
+    background-color: #C4C4C4;
+}
+
+.bulk-approval-datatable .select2-container--disabled .selection .select2-selection--single .select2-selection__rendered,
+.bulk-approval-datatable .select2-container .selection .select2-selection--single .select2-selection__rendered {
+    color: #555;
+}
+
+.bulk-approval-datatable .btn-group-sm .btn-light,
+.bulk-approval-datatable .btn-sm.btn-light {
+    background: #FFFFFF;
+    color: #555;
+}
+
+.bulk-approval-datatable .btn-sm.btn-light {
+    border-radius: 4px;
+}
+
+.bulk-approval-datatable .btn-group-sm .btn-light:disabled,
+.bulk-approval-datatable .btn-sm.btn-light:disabled {
+    background: #C4C4C4;
+    color: #000000;
+}
+
+.bulk-approval-datatable .select2-container {
+    width: 100px !important;
+    margin: 0px 15px;
+}
+
+.bulk-approval-datatable .appItemTextHidden {
+    display: none;
+}
+
+/*.bulkApprovalTabContainer {
+    z-index: -1;
+}*/
+
+.bulkApprovalTabContainer .dataTables_wrapper .row:first-of-type,
+.approvalProcessControllTabContainer .dataTables_wrapper .row:first-of-type {
+    display: none;
+}
+
+.filterPresetContainer {
+    width: 75% !important;
+    display: block;
+    /*background: pink !important; */
+}
+
+.fpc {
+    display: inline-block;
+    width: 82% !important;
+    background: #FFFFFF !important; 
+    border-radius: 10px;
+    float: left;
+    height: 40px;
+    border: solid 1px #dddddd;
+}
+
+.fpc .select2-container--default {
+    width: 20% !important;
+    display: inline-block;
+    float: left;
+    background: transparent;
+}
+
+.fpc .select2-container.select2-container--default .selection .select2-selection--single {
+    border: none;
+    box-shadow: none;
+    border-radius: 8px 0px 0px 8px;
+    background: transparent;
+    border-right: solid 1px #C4C4C4;
+}
+
+.fpc .presetsContent {
+    width: 69.5%;
+    height: 38px;
+    background: transparent;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.fpc .presetsContent .presetItem {
+    background: #C4C4C4;
+    border-radius: 25px;
+    width: 100px;
+    
+    padding: 0px 20px;
+    font-size: 10px;
+    line-height: 1;
+    /* height: 35px; */
+    margin: 4px 0px 0px 10px;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.fpc .presetsContent .presetItem .removeBtnContainer {
+    position: relative;
+}
+
+.fpc .presetsContent .presetItem .removeBtnContainer .filterPresetRemoveBtn {
+    width: 18px;
+    height: 18px;
+    padding: 0px;
+    margin: -11px 0px 0px 65px;
+    float: right;
+    position: absolute;
+}
+
+.fpc .presetsContent .presetItem .presetItemText {
+    display: block;
+    color: #FFFFFF !important;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.presetActionBtnContainer {
+  display: inline-block;
+  float: right;
+}
+
+.presetActionBtnContainer .EditPresetBtn,
+.presetActionBtnContainer .AddNewPresetBtn {
+    width: 35px;
+    height: 35px;
+    margin: 2px 0px 0px 0px;
+    padding: 0px;
+    font-size: 20px;
+    border: none;
+    background: transparent;
+}
+
+.saveDeletePresetBtnContainer .filterPresetSaveBtn,
+.saveDeletePresetBtnContainer .filterPresetDeleteBtn,
+.saveDeletePresetBtnContainer .btnSearchTopReport {
+    width: 90px;
+    border: none;
+    display: inline-block;
+    margin: 2px 0px 0px 10px;
+    color: #FFFFFF;
+}
+
+.saveDeletePresetBtnContainer .filterPresetSaveBtn {
+    background: #4F4F4F;
+}
+.saveDeletePresetBtnContainer .filterPresetSaveBtn:hover {
+    background: #707070;
+}
+
+.filterPresetFormContainer {
+    background: #FFFFFF;
+    height: auto;
+    display: none;  /***none***/
+    width: 48.2%;
+    position: absolute;
+    z-index: 999/*999999*/;
+    margin: 10px 0px 0px 12%;
+    opacity: 0.95;
+    border-radius: 10px;
+    padding: 10px 20px 20px 20px;
+    /*background: pink;
+    position: absolute;
+    margin: 0.6% 0px 0px 12%;*/
+}
+
+.filterPresetFormContainer.active {
+    display: block;
+}
+
+.filterPresetFormContainer .fpfcTitle {
+    font-weight: 900;
+    font-size: 14px;
+}
+
+#filterPresetForm .form-group .col-lg-6.col-md-6.col-sm-4.col-xs-12 .select2-container--default,
+#PayrollMasterListingForm .form-group .col-lg-6.col-md-6.col-sm-4.col-xs-12 .select2-container--default {
+    width: 100% !important;
+}
+
+.filterPresetFormContainer .filterPresetCloseBtn {
+    width: 35px;
+    height: 35px;
+    margin: -10px 0px 0px 0px;
+    padding: 0px;
+    font-size: 20px;
+    border: none;
+    background: transparent;
+    position: absolute;
+    float: right;
+    right: 0;
+}
+
+.ViewApplicationDetails .modal-dialog {
+/*height:700px; width:1000px;overflow-y: auto;*/
+    width: 50%;
+    height: 90%;
+}
+.ModalViewApplicationDetails .form-horizontal {
+    width: 70%;
+    margin: 0px auto;
+}
+
+.ModalViewApplicationDetails .form-horizontal textarea {
+    /*width: 100%;*/
+    min-height: 120px;
+    white-space: pre-line;
+}
+
+.ModalViewSuperiorComments .form-horizontal .commentsItemContainer,
+.ModalViewBAAttachments .form-horizontal .commentsItemContainer {
+    margin: 0px 0px 25px 0px;
+}
+
+.ModalViewSuperiorComments .form-horizontal .commentsItemContainer .approverName,
+.ModalViewBAAttachments .form-horizontal .commentsItemContainer .approverName {
+    font-size: 9px
+}
+
+.ModalViewBAAttachments .form-horizontal .commentsItemContainer textarea {
+    width: 100%;
+    min-height: 50px;
+    white-space: pre-line;
+}
+
+.ModalViewSuperiorComments .form-horizontal .commentsItemContainer textarea {
+    min-height: 120px;
+    white-space: pre-line;
+}
+
+.ViewBAAttachments .modal-dialog {
+    width: 30%;
+    max-height: 90%;
+}
+
+.ViewApprovers .modal-dialog {
+    width: 25%;
+    max-height: 90%;
+}
+
+.ViewApplicationDetails .modal-dialog .modal-content,
+.ViewSuperiorComments .modal-dialog .modal-content,
+.ViewApprovers .modal-dialog .modal-content,
+.ViewBAAttachments .modal-dialog .modal-content,
+.ViewAddEditSuperiorComment .modal-dialog .modal-content {
+    width: 100%;
+    height: 100%;
+}
+
+.ViewApplicationDetails .modal-dialog .modal-content .modal-header,
+.ViewSuperiorComments .modal-dialog .modal-content .modal-header,
+.ViewApprovers .modal-dialog .modal-content .modal-header,
+.ViewBAAttachments .modal-dialog .modal-content .modal-header,
+.ViewAddEditSuperiorComment .modal-dialog .modal-content .modal-header,
+#UserDefinedApproverSelector .modal-dialog .modal-content .modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.ViewApplicationDetails .modal-dialog .modal-content .modal-body,
+.ViewSuperiorComments .modal-dialog .modal-content .modal-body,
+.ViewBAAttachments .modal-dialog .modal-content .modal-body,
+.ViewAddEditSuperiorComment .modal-dialog .modal-content .modal-body {
+    position: relative;
+    padding: 15px;
+    height: 90%;
+    overflow: auto;
+}
+
+.ViewApprovers .modal-dialog .modal-content .modal-body {
+    position: relative;
+    padding: 15px;
+    max-height: 90%;
+    overflow: auto;
+}
+
+.ViewApplicationDetails .modal-dialog .modal-content .modal-header .modal-title,
+.ViewSuperiorComments .modal-dialog .modal-content .modal-header .modal-title,
+.ViewApprovers .modal-dialog .modal-content .modal-header .modal-title,
+.ViewBAAttachments .modal-dialog .modal-content .modal-header .modal-title,
+.ViewAddEditSuperiorComment .modal-dialog .modal-content .modal-header .modal-title,
+#UserDefinedApproverSelector .modal-dialog .modal-content .modal-header .modal-title {
+    font-weight: 700;
+    font-size: 20px;
+    color: #4F4F4F;
+    width: auto;
+    display: inline-block;
+}
+
+.ViewApplicationDetails .modal-dialog .modal-content .modal-header button,
+.ViewSuperiorComments .modal-dialog .modal-content .modal-header button,
+.ViewApprovers .modal-dialog .modal-content .modal-header button,
+.ViewBAAttachments .modal-dialog .modal-content .modal-header button,
+.ViewAddEditSuperiorComment .modal-dialog .modal-content .modal-header button {
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.ViewAddEditSuperiorComment .modal-dialog,
+.ViewSuperiorComments .modal-dialog {
+    width: 40%;
+    max-height: 90%;
+}
+
+
+.ModalViewAddEditSuperiorComment .form-group #appDetailsRemarks {
+    min-height: 120px;
+    white-space: pre-line;
+}
+
+.ModalViewApplicationDetails .form-horizontal .my-custom-scrollbar {
+    height: unset;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+
+#ESSViewAttachment .modal-dialog {
+    width: fit-content;
+    height: fit-content;
+/*    height: 90%;*/
+}
+
+#ESSViewAttachment .modal-dialog .modal-content,
+#ESSViewAttachment .modal-dialog .modal-content .modal-body{
+/*    width:100%;*/
+/*    height: 100%;*/
+/*    margin: 0px auto;*/
+}
+
+#ESSViewAttachment .modal-dialog .modal-content .modal-body img {
+    max-width:100%;
+/*    margin: 0px auto;*/
+}
+
+#ESSViewAttachment .modal-dialog .modal-content .modal-header .modal-title {
+    font-weight: 700;
+    font-size: 20px;
+    color: #4F4F4F;
+    width: auto;
+    display: inline-block;
+}
+
+#ESSViewAttachment .modal-dialog .modal-content .modal-header button {
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.btnViewAttachments {
+    cursor: zoom-in;
+ }
+
+
+/*.viewApplicationBtn {
+    margin: 1px 0px 0px 0px !important;
+}*/
+
+/*.baStatusDescTextField {
+    width:100px !important;
+    margin: 0px 10px !important; 
+}*/
+
+.baAppStatusSelectContainer .appStatus,
+.baAppStatusSelectContainer .select2-container {
+    display: none !important;
+}
+
+.bulkApprovalTabContainer .my-custom-scrollbar.view_list,
+.approvalProcessControllTabContainer .my-custom-scrollbar.view_list {
+/*    height: 60vh;*/
+    height: 64vh;
+}
+
+.pendingApprovalsBtnContainer {
+    padding: 10px;
+    height: 100px;
+}
+
+.modNameContainer {
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin: -20px 0px 0px 0px;
+}
+
+.pendingApprovalsBtnContainer .badge {
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 5px 1px 0px 0px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 400;
+    background: #CF6F6F;
+    margin: 0px 0px 0px auto;
+}
+
+.modNameContainer .modNameText {
+    display: block;
+    color: #4F4F4F;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0px auto;
+}
+
+.EWGMContainer {
+/*    background: red;*/
+}
+
+.empWorkgroupMaintenanceFilterContainer {
+    width: auto;
+    position: absolute;
+    z-index: 1;
+    margin: 0px 0px 0px 11%;
+}
+
+.empWorkgroupMaintenanceFilterContainer .filterItemContainer {
+    max-width: 200px;
+    display: inline-table;
+    float: left;
+    margin: 0px 0px 0px 10px;
+}
+
+.filterItemContainer .filterTitle {
+    display: inline-table;
+    margin: 8px 10px 0px 0px;
+    float: left;
+}
+
+.filterItemContainer .inputContainer {
+    display: inline-table;
+    width: 130px;
+    margin: 0px;
+}
+
+.filterItemContainer .inputContainer .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--multiple {
+    min-height: 34px;
+    box-shadow: 2px 2px 10px rgb(0 0 0 / 10%);
+}
+
+.filterItemContainer .inputContainer .select2-container--default .select2-selection--single .select2-selection__rendered {
+    padding-top: 3px;
+}
+
+.filterItemContainer .inputContainer .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 33px;
+}
+
+
+.selectedRow {
+    background: #dafcff;
+    color: #08699f;
+    font-weight: 500
+}
+
+.trSelected {
+    color: rgb(8, 105, 159);
+    font-weight: 500;
+    background: rgb(218, 252, 255);
+}
+
+.PayrollMasterListingPresetsContainer .filterPresetContainer {
+    width: 60% !important;
+}
+
+.PayrollMasterListingPresetsContainer .fpc .presetsContent {
+    width: 95%;
+}
+
+.PayrollMasterListingPresetsContainer .fpc .presetsContent .presetItem {
+    width: 113px;
+}
+
+.PayrollMasterListingPresetsContainer .fpc .presetsContent .presetItem .removeBtnContainer .filterPresetRemoveBtn {
+    margin: -11px 0px 0px 75px;
+}
+
+.PayrollMasterListingPresetsContainer .filterPresetFormContainer {
+    margin: 10px 0px 0px 0px;
+    width: 48.8%;
+}
+
+
+.left-toolbar .select2-container, #tab_current .select2-container {
+    width: 100%;
+    margin: 10px;
+}
+
+.left-toolbar .select2-dropdown, #tab_current .select2-dropdown {
+    margin: -10px;
+}
+
+.left-toolbar .select2-selection, #tab_current .select2-selection {
+    border-radius: 10px;
+}
+
+.eldmTabs li {
+    /*padding-left: 20px;*/
+    padding-top: 10px;
+    /*padding-right: 50px;*/
+    /*padding-bottom: 10px;*/
+}
+
+.eldmTabs li a {
+    padding: 10px 12px;
+    border-radius: 10px;
+}
+
+.eldmTabs li.active > a, .eldmTabs li.active > a:hover, .eldmTabs li a:hover, .eldmTabs li.active > a:focus {
+    color: #fff;
+    padding: 10px 12px;
+    background: #31A5F1;
+    backdrop-filter: blur(25px);
+    border-radius: 10px;
+}
+
+
+.securityGroupContainer .x_content .my-custom-scrollbar-right,
+.postedSecurityGroupContainer .x_content .my-custom-scrollbar-right {
+    height: 65vh;
+}
+
+.attendanceWorkGroupContainer .x_content .my-custom-scrollbar-right,
+.projectDetailsMaintenanceContainer .x_content .my-custom-scrollbar-right {
+    height: 63vh;
+}
+
+.ESSprojectDetailsMaintenanceContainer .x_content .my-custom-scrollbar-right {
+    height: 54vh !important;
+    min-height: unset !important;
+}
+
+.securityGroupContainer .x_content .my-custom-scrollbar-right .sgRows,
+.postedSecurityGroupContainer .x_content .my-custom-scrollbar-right .sgRows,
+.attendanceWorkGroupContainer .x_content .my-custom-scrollbar-right .awgRows,
+.projectDetailsMaintenanceContainer .x_content .my-custom-scrollbar-right .awgRows {
+/*    background: #FFFFFF;*/
+    background: #f7f9fa;
+    padding: 10px 10px 5px 10px;
+    border-radius: 10px;
+    margin: 0px;
+}
+
+.projectDetailsMaintenanceContainer .x_content .my-custom-scrollbar-right .awgTabContainer {
+    width: 70%;
+    display: inline-block;
+}
+
+.projectDetailsMaintenanceContainer .x_content .my-custom-scrollbar-right .totalDurationContainer {
+    background: #FFFFFF;
+    float: right;
+    padding: 13px 15px;
+    text-align: center;
+    border-radius: 10px;
+    color: #828282;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0px 10px 0px 0px;
+    line-height: 1;
+}
+
+.securityGroupContainer .x_content .my-custom-scrollbar-right .sgTabContainer #myTab:before,
+.securityGroupContainer .x_content .my-custom-scrollbar-right .sgTabContainer #myTab:after,
+.postedSecurityGroupContainer .x_content .my-custom-scrollbar-right .psgTabContainer #myTab:before,
+.postedSecurityGroupContainer .x_content .my-custom-scrollbar-right .psgTabContainer #myTab:after,
+.attendanceWorkGroupContainer .x_content .my-custom-scrollbar-right .awgTabContainer #myTab:before,
+.attendanceWorkGroupContainer .x_content .my-custom-scrollbar-right .awgTabContainer #myTab:after,
+.projectDetailsMaintenanceContainer .x_content .my-custom-scrollbar-right .awgTabContainer #myTab:before,
+.projectDetailsMaintenanceContainer .x_content .my-custom-scrollbar-right .awgTabContainer #myTab:after {
+    display: none;
+}
+
+.securityGroupContainer .x_content .my-custom-scrollbar-right .sgTabContainer #myTab,
+.postedSecurityGroupContainer .x_content .my-custom-scrollbar-right .psgTabContainer #myTab,
+.attendanceWorkGroupContainer .x_content .my-custom-scrollbar-right .awgTabContainer #myTab,
+.projectDetailsMaintenanceContainer .x_content .my-custom-scrollbar-right .awgTabContainer #myTab {
+    display: inline-table;
+    margin: 0px;
+    padding: 0px;
+}
+
+.securityGroupContainer .x_content .my-custom-scrollbar-right .sgTabContainer #myTab li a,
+.postedSecurityGroupContainer .x_content .my-custom-scrollbar-right .psgTabContainer #myTab li a,
+.attendanceWorkGroupContainer .x_content .my-custom-scrollbar-right .awgTabContainer #myTab li a,
+.projectDetailsMaintenanceContainer .x_content .my-custom-scrollbar-right .awgTabContainer #myTab li a {
+    padding: 10px 30px;
+    border-radius: 10px;
+    color: #828282 !important;
+}
+
+.securityGroupContainer .x_content .my-custom-scrollbar-right .sgTabContainer #myTab li.active a,
+.postedSecurityGroupContainer .x_content .my-custom-scrollbar-right .psgTabContainer #myTab li.active a,
+.attendanceWorkGroupContainer .x_content .my-custom-scrollbar-right .awgTabContainer #myTab li.active a,
+.projectDetailsMaintenanceContainer .x_content .my-custom-scrollbar-right .awgTabContainer #myTab li.active a {
+    color: #FFFFFF !important;
+    background: #31A5F1;
+}
+
+.securityGroupContainer .x_content .my-custom-scrollbar-right .sgTabContainer .updateDropDownBtn {
+    float: right;
+}
+
+.securityGroupContainer .x_content .my-custom-scrollbar-right .sgTabContainer .updateDropDownBtn .dropdown-menu{
+    float: right;
+    margin: 5px 0px 0px -60px;
+    border-radius: 8px;
+    border: 1px solid #D9DEE4;
+    text-align: center;
+    padding: 5px;
+}
+
+.securityGroupContainer .x_content .my-custom-scrollbar-right .sgTabContainer .updateDropDownBtn #updateDropDownChildBtns,
+.securityGroupContainer .x_content .my-custom-scrollbar-right .sgTabContainer .updateDropDownBtn #postGroupProcessBtn {
+    padding: 8px 15px 7px 15px;
+    padding: 5px 20px;
+    text-align: center;
+    background: #26B99A;
+/*    border-color: #26B99A;*/
+    margin: 4px 0px 0px 0px;
+}
+
+.securityGroupContainer .x_content .my-custom-scrollbar-right .sgTabContainer .updateDropDownBtn #updateDropDownChildBtns .fa-chevron-down{
+    margin: 0px 0px 0px 10px;
+}
+.securityGroupContainer .x_content .my-custom-scrollbar-right .sgTabContainer .updateDropDownBtn #postGroupProcessBtn {
+    background: #828282;
+    color: #FFFFFF;
+    padding: 4px 20px;
+}
+.securityGroupContainer .x_content .my-custom-scrollbar-right .sgTabContainer .updateDropDownBtn .dropdown-menu .dropdown-item {
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #515356;
+}
+
+.securityGroupContainer .x_content .my-custom-scrollbar-right .sgTabContainer .updateDropDownBtn .dropdown-menu .dropdown-item:hover {
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+    background: #cbcbcb;
+    color: unset;
+}
+
+.securityGroupContainer .x_content .prevNextContainer,
+.attendanceWorkGroupContainer .x_content .prevNextContainer,
+.projectDetailsMaintenanceContainer .x_content .prevNextContainer {
+/*    background: red;*/
+    width: 100%;
+    text-align: center;
+    padding: 5px 0px 0px 0px;
+}
+
+.projectDetailsMaintenanceContainer .x_content .prevNextContainer {
+    text-align: left;
+}
+
+.securityGroupContainer .x_content .prevNextContainer button,
+.sgeAddRowBtn,
+.sgSaveBtn,
+.psggpAddRowBtn,
+.psgSaveBtn,
+.attendanceWorkGroupContainer .x_content .prevNextContainer button,
+.projectDetailsMaintenanceContainer .x_content .prevNextContainer button {
+    width: 100px;
+    padding: 0px;
+    font-size: 12px !important;
+    font-weight: normal;
+    padding: 5px 0px;
+}
+
+.securityGroupContainer .x_content .prevNextContainer .saveAsDraftBtn,
+.sgSaveBtn,
+.psgSaveBtn,
+.awgSaveBtn,
+.projectSaveBtn,
+.projectTimesheetApplicationSaveBtn {
+    background: #26B99A !important;
+}
+
+.securityGroupContainer .x_content .prevNextContainer #backToPrevTabBtn {
+    background: #d9534f;
+}
+
+.securityGroupContainer .x_content .prevNextContainer #goToNextTabBtn {
+    background: #f0ad4e;
+}
+
+.sgeAddRowBtn,
+.psggpAddRowBtn {
+    background: #4F4F4F !important;
+}
+
+.securityGroupContainer .x_content .my-custom-scrollbar-right #myTabContent .tab-pane,
+.postedSecurityGroupContainer .x_content .my-custom-scrollbar-right #myTabContent .tab-pane,
+.attendanceWorkGroupContainer .x_content .my-custom-scrollbar-right #myTabContent .tab-pane,
+.projectDetailsMaintenanceContainer .x_content .my-custom-scrollbar-right #myTabContent .tab-pane {
+    margin: 35px auto 0px auto;
+    width: 100%;
+    height: 53vh;
+    overflow: auto;
+}
+
+.ESSprojectDetailsMaintenanceContainer .x_content .my-custom-scrollbar-right #myTabContent .tab-pane {
+    height: 50vh;
+}
+
+.projectDetailsMaintenanceContainer .x_content .my-custom-scrollbar-right #myTabContent .tab-pane {
+    overflow: unset;
+    /*overflow-x: hidden;
+    overflow-y: auto;*/
+}
+
+.securityGroupContainer .x_content .my-custom-scrollbar-right #myTabContent .tab-pane .detailsFContainer,
+.securityGroupContainer .x_content .my-custom-scrollbar-right #myTabContent .tab-pane .filterFContainer,
+.postedSecurityGroupContainer .x_content .my-custom-scrollbar-right #myTabContent .tab-pane .detailsFContainer {
+    width: 65%;
+    margin: 0px auto;
+}
+
+.securityGroupContainer .x_content .my-custom-scrollbar-right #myTabContent .tab-pane .employeeListsFContainer,
+.securityGroupContainer .x_content .my-custom-scrollbar-right #myTabContent .tab-pane .updateSummaryFContainer,
+.postedSecurityGroupContainer .x_content .my-custom-scrollbar-right #myTabContent .tab-pane .processGroupListsFContainer {
+    width: 97% !important;
+    margin: 0px auto;
+}
+
+.updateDropDownBtn .dropdown-menu .UpdateGenerateNewBtn,
+.updateDropDownBtn .dropdown-menu .UpdateGenerateBtn {
+    background: transparent !important;
+    width: 100% !important;
+    border: none;
+}
+
+.filterFContainer #additionalFilterBtn {
+    background: transparent;
+    border-color: transparent;
+    text-transform: uppercase;
+    padding: 10px;
+    margin: 0px;
+    line-height: 1;
+}
+
+.filterFContainer #additionalFilterBtn .fa {
+    margin: 0px 0px 0px 5px;
+}
+
+.employeeListsFContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.employeeListsFContainer .sgeTableContainer {
+    width: 100%;
+    height: 80%;
+    margin: 0px 0px 10px 0px;
+    overflow-x: hidden;
+}
+
+.ajs-no-overflow {
+    overflow: unset !important;
+}
+
+.employeeListsFContainer .psgeTableContainer {
+    width: 100%;
+    height: 91%;
+    margin: 0px 0px 10px 0px;
+    overflow-x: hidden;
+}
+
+.sectionPanelTabs li {
+    padding-top: 10px;
+}
+
+.sectionPanelTabs li a {
+    padding: 10px 12px;
+    border-radius: 10px;
+}
+
+.sectionPanelTabs li.active > a, .sectionPanelTabs li.active > a:hover, .sectionPanelTabs li a:hover, .sectionPanelTabs li.active > a:focus {
+    color: #fff;
+    padding: 10px 12px;
+    background: #31A5F1;
+    backdrop-filter: blur(25px);
+    border-radius: 10px;
+}
+
+.left-toolbar-button-style {
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.08) 4px 4px 20px;
+    border-radius: 10px;
+    height: 38px;
+    width: 38px;
+    position: absolute;
+}
+
+.right-toolbar-button-style {
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.08) 4px 4px 20px;
+    border-radius: 10px;
+    height: 38px;
+    width: 38px;
+}
+
+.ess-tool-input {
+    height: 38px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.08) 4px 4px 20px;
+}
+
+.ess-tool-select {
+    border-radius: 5px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.08) 4px 4px 20px;
+    height: 38px;
+}
+
+.ess-tool-btn {
+    box-shadow: rgba(0, 0, 0, 0.08) 4px 4px 20px;
+    border-radius: 5px;
+    height: 38px;
+}
+
+.ess-tool-btn-filter {
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.08) 4px 4px 20px;
+    border-radius: 5px;
+    height: 38px;
+    width: 38px;
+}
+
+.left-toolbar-search-style {
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.08) 4px 4px 20px;
+    border-radius: 10px;
+    position: absolute;
+    width: 150px;
+    height: 38px;
+}
+
+.left-toolbar {
+    margin-bottom: 14px;
+    min-height: 60px;
+    position: relative;
+    width: 99%;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(25px);
+    border-radius: 30px;
+    z-index: 9999
+}
+
+.right-toolbar {
+    margin-bottom: 14px;
+    min-height: 60px;
+    position: relative;
+    width: 99%;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(25px);
+    border-radius: 30px;
+    z-index: 9999
+}
+
+.ess-tool-filter-container {
+    margin-left: -311px;
+    position: absolute;
+    padding: 40px;
+    border-radius: 15px;
+    z-index: 99999;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(25px);
+}
+
+.ess-tool-close-filter, .ess-tool-clear-filter {
+    position: absolute;
+    margin-top: -20px;
+    border: none
+}
+
+.advance-filter-container {
+    right: 15px;
+    position: absolute
+}
+
+.module-div-loader {
+    z-index: 1031;
+    position: absolute;
+    width: 95%;
+    height: 90%;
+    display: none;
+}
+
+.module-div-loader-spinner {
+    position: absolute;
+    z-index: 1032;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+    .module-div-loader-spinner i {
+        font-size: 64px;
+    }
+
+.select2Container {
+    width: 200px;
+    position: absolute;
+    right: 20px;
+}
+
+
+
+.attendanceWorkGroupContainer .x_content .my-custom-scrollbar-right #myTabContent .tab-pane .detailsFContainer {
+    width: 60%;
+    margin: 0px auto;
+}
+
+.projectDetailsMaintenanceContainer .x_content .my-custom-scrollbar-right #myTabContent .tab-pane .detailsFContainer {
+    width: 80%;
+    margin: 0px auto;
+}
+
+#attendance-workgroup-shift-setup-datatable_wrapper,
+#attendance-workgroup-compensation-datatable_wrapper,
+#attendance-workgroup-penalty-datatable_wrapper {
+    width: 98%;
+}
+
+
+#ModalAppealApplicationView {
+    text-align: center;
+/*    line-height: 0.5;*/
+}
+
+#ViewAppealApplication .modal-dialog {
+    width: 47% !important;
+}
+
+#ViewAppealApplication .modal-dialog .modal-content .modal-body {
+    padding: 40px 10px;
+}
+
+#ViewAppealApplication .modal-dialog .modal-content .modal-body #ModalAppealApplicationView #_ViewAppealApplication {
+    margin: 0px 0px 40px 0px;
+}
+
+#ViewAppealApplication .modal-dialog .modal-content .modal-header .modal-title {
+    font-weight: 700;
+    font-size: 20px;
+    color: #4F4F4F;
+    width: auto;
+    display: inline-block;
+}
+
+.appealPhrase {
+    display: block;
+    margin: 0px 0px 15px 0px;
+}
+
+.ap3 {
+    display: block;
+    margin: 0px 0px 30px 0px;
+}
+
+
+.accordion-container .accordion-header {
+    cursor: pointer;
+    padding: 10px;
+    font-weight: bold;
+    margin-left: 20%;
+}
+
+.accordion-container .accordion-content {
+    display: none;
+    padding: 10px;
+}
+
+.appWorkflowContainer .x_content .moduleSetContainer .cd-h-timeline__dates {
+    position: relative;
+    height: 100%;
+    /* margin: 0px 25px; */
+    overflow: hidden;
+    width: 90%;
+    margin: 0px auto;
+}
+
+.appWorkflowContainer .appWorkflowModuleSetList .appWorkflowModuleSetItem {
+    left: -100px;
+}
+
+.appWorkflowContainer .moduleSetContainer .cd-h-timeline__filling-line {
+    left: -100px;
+}
+
+#FormSubmitTransferRequest {
+    max-height: 75vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+.form-control {
+    backdrop-filter: none !important;
+}
+
+
+.fpcCandidate {
+    display: inline-block;
+    background: #FFFFFF !important; 
+    border-radius: 10px;
+    float: left;
+    height: 40px;
+    border: solid 1px #dddddd;
+}
+
+.fpcCandidate .presetsContent {
+    /* width: 69.5%; */
+    height: 38px;
+    background: transparent;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.fpcCandidate .presetsContent .presetItem {
+    background: #C4C4C4;
+    border-radius: 25px;
+    width: 100px;
+    
+    padding: 0px 20px;
+    font-size: 10px;
+    line-height: 1;
+    /* height: 35px; */
+    margin: 4px 0px 0px 10px;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+
+.fpcCandidate .presetsContent .presetItem .removeBtnContainer {
+    position: relative;
+}
+
+.fpcCandidate  .presetsContent .presetItem .removeBtnContainer .filterPresetRemoveBtn {
+    width: 18px;
+    height: 18px;
+    padding: 0px;
+    margin: -11px 0px 0px 65px;
+    float: right;
+    position: absolute;
+}
+
+.fpcCandidate  .presetsContent .presetItem .presetItemText {
+    display: block;
+    color: #FFFFFF !important;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.approveTimesheetForm {
+    margin: 0px 0px 10px 0px;
+}
+
+.empTimeSheetColumnsTD {
+    background: #e0e0e0;
+}
+
+.empTimeSheetColumnsTH {
+    z-index: 1;
+}
+
+#datatable-employeetimesheetdetails tbody tr:hover > .empTimeSheetColumnsTD {
+  background-color: #fff;
+}
+
+#datatable-employeetimesheetdetails .trSelected > .empTimeSheetColumnsTD {
+  background: #dafcff;
+}
+
+
+#dt-pts-items .hiddenTR,
+#dt-pts-items-approval-status .hiddenTR {
+    display: none;
+}
+
+#dt-pts-items .groupText,
+#dt-pts-items .ptsAppTotalDurationContainer,
+#dt-pts-items-approval-status .groupText,
+#dt-pts-items-approval-status .ptsAppTotalDurationContainer {
+    display: inline-block;
+    color: #4F4F4F;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 9px 9px 9px;
+    line-height: 1;
+    float: left;
+    margin: 0px 15px 0px 0px;
+}
+
+#dt-pts-items .ptsItemAddProjectRowBtn,
+#dt-pts-items-approval-status .ptsItemAddProjectRowBtn {
+    /* background: red; */
+    display: inline-block;
+}
+
+.projectDetailsMaintenanceContainer .empCodeFieldContainer, .projectDetailsMaintenanceContainer .appDateFieldContainer {
+    display: inline-block;
+    margin: 0px 0px 0px 30px;
+}
+
+.projectDetailsMaintenanceContainer .empCodeFieldContainer{
+    float: left;
+}
+
+.projectDetailsMaintenanceContainer .empCodeFieldContainer .fieldLabelContainer,
+.projectDetailsMaintenanceContainer .appDateFieldContainer .fieldLabelContainer,
+.projectDetailsMaintenanceContainer .empCodeFieldContainer .fieldContainer,
+.projectDetailsMaintenanceContainer .appDateFieldContainer .fieldContainer {
+    display: inline-block;
+}
+
+.projectDetailsMaintenanceContainer .empCodeFieldContainer .fieldLabelContainer,
+.projectDetailsMaintenanceContainer .appDateFieldContainer .fieldLabelContainer{
+    float: left;
+    line-height: 1;
+    margin: 4px 10px 0px 0px;
+}
+
+
+#dt-project-timesheet-application-lists .alert-dark,
+#dt-pts-items-approval-status .alert-dark {
+    color: #1b1e21;
+    background-color: #d6d8d9;
+    border-color: #c6c8ca;
+}
+
+#dt-project-timesheet-application-lists .alert-warning,
+#dt-project-timesheet-application-lists .alert-dark,
+#dt-project-timesheet-application-lists .alert-danger,
+#dt-project-timesheet-application-lists .alert-success,
+#dt-pts-items-approval-status .alert-warning,
+#dt-pts-items-approval-status .alert-dark,
+#dt-pts-items-approval-status .alert-danger,
+#dt-pts-items-approval-status .alert-success {
+    line-height: 1;
+    text-align: center;
+    padding: 7px 10px 6px 10px;
+}
+
+#dt-pts-items-approval-status .ptsAppStatusContainer {
+    display: inline-block;
+}
+
+
+#dt-pts-items .dtActionBtn,
+#dt-pts-items-approval-status .dtActionBtn {
+        padding: 2px 5px;
+}
+
+#dt-pts-items .btnDeleteProjectTimesheetApplicationItem,
+#dt-pts-items-approval-status .btnDeleteProjectTimesheetApplicationItem {
+    padding: 3px 5px 1px 5px;
+    width: 25px;
+    height: 24px;
+    float: right;
+    margin: 0px 0px 0px 10px;
+}
+
+
+#tab_projectTimesheet .bootstrap-datetimepicker-widget {
+    z-index: 99999 !important;
+    position: fixed !important;
+    height: 250px;
+}
+
+.ESSProjectTimesheetXContent {
+    height: 65vh;
+    overflow: auto;
+}
+
+.flex-left .ESSprojectDetailsMaintenanceContainer .x_content .my-custom-scrollbar-right {
+    overflow: hidden;
+}
+
+.form-control {
+    backdrop-filter: none;
+   }
+   
+   .flex-container {
+       backdrop-filter: none;
+   }
+   
+   .flex-right {
+       /*backdrop-filter: none;*/
+   }
+   
+   .flex-left {
+       /*backdrop-filter: none;*/
+   }
+
+
+  .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .info-tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+.approvalProcessControllTabContainer .bulkActionSelectorContainer {
+    width: 230px;
+}
+
+.approvalProcessControllTabContainer .bulkActionSelectorContainer .select2-container {
+    width: 149px !important;
+}
+
+.approvalProcessControlContainer .bulkAppContainer .filterContainer h3 {
+    font-size: 15px;
+}
+
+.approvalProcessControlContainer .bulkAppContainer .filterContainer {
+    padding: 15px 15px 5px 15px;
+}
+
+.approvalProcessControllTabContainer .progressBarContainer {
+    width: 100%;
+}
+
+.approvalProcessControllTabContainer .progressbar {
+   /* padding-left: 0px;
+    padding-right: 40px;*/
+    padding: 0px;
+    text-align: center;
+}
+
+.approvalProcessControllTabContainer .progressbar li {
+    float: unset;
+    display: inline-block;
+}
+
+.approvalProcessControllTabContainer .progressbar li:after {
+    border-width: 3px;
+}
+
+.approvalProcessControllTabContainer .progressbar li .pDetails {
+    font-size: 7px;
+    display: inline-block;
+}
+
+.approvalProcessControllTabContainer .progressbar li:before {
+    top: 28.4px;
+    z-index: 1;
+}
+
+.approvalProcessControllTabContainer .progressbar li .pDetails .pDetailsAppName,
+.approvalProcessControllTabContainer .progressbar li .pDetails .pDetailsAppStatus  {
+    color: #4F4F4F;
+    display: block;
+}
+
+.approvalProcessControllTabContainer .progressbar li .pDetails .pDetailsAppStatus.approved {
+    color: #26B99A;
+}
+
+.approvalProcessControllTabContainer .progressbar li .pDetails .pDetailsAppStatus.pending {
+    color: #FFA629;
+}
+
+.approvalProcessControllTabContainer .progressbar li .pDetails .pDetailsAppStatus.declined {
+    color: #CF6F6F;
+}
+
+.approvalProcessControllTabContainer .bulk-approval-datatable .select2-container {
+    width: 100% !important;
+    margin: 0px !important;
+}
+
+.approvalProcessControlContainer #ViewApplication .modal-dialog.viewApplicationDocument {
+    width: 40% !important;
+    overflow: auto !important;
+    height: 94vh !important;
+}
+
+.approvalProcessControlContainer #ViewApplication .modal-dialog.viewApplicationDocument .modal-content .modal-body {
+    width: 100% !important;
+    overflow: auto !important;
+    height: 83vh !important;
+}
+
+.approvalProcessControlContainer #ViewApplication .modal-dialog.viewApplicationDocument.ESSPerformanceEvaluation .modal-content .modal-body,
+.approvalProcessControlContainer #ViewApplication .modal-dialog.viewApplicationDocument.ESSPerformanceKPI .modal-content .modal-body,
+.approvalProcessControlContainer #ViewApplication .modal-dialog.viewApplicationDocument.ESSPerformanceBalanceScoreCard .modal-content .modal-body {
+    width: 95% !important;
+}
+
+
+/*.select2-container {
+    z-index: 999999; 
+}*/
+
+.advanceFilterLists {
+    z-index: 4;
+}
+
+.advanceFilterLeaveDetails {
+    z-index: 4;
+}
+
+.advanceFilterLists {
+    z-index: 4;
+}
+
+.advanceFilter {
+    z-index: 4;
+}
+
+
+/*UI INHANCEMENT*/
+
+
+.dt-custom-search {
+    width: 25%;
+    float: right;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.08) 4px 4px 20px;
+    border-radius: 10px;
+    position: absolute;
+    height: 38px;
+}
+
+.eldm-dt-custom-search {
+    right: 80px;
+    border: 1px solid #ddd;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.dt-button-style {
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    height: 38px;
+}
+
+.dt-eldm-filter-button {
+    border: 1px solid #ddd;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.dt-l-action-container {
+    width: 350px;
+}
+
+.dt-bulk-action-label {
+    margin: 10px 0px 10px 0px;
+    border-radius: 8px 0px 0px 8px;
+    border: 1px solid #ddd;
+    border-right: none;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 8px;
+    background: #FFF;
+    height: 38px;
+}
+
+
+.dt-l-action-container .select2-container--default .select2-selection--single {
+    border-radius: 0px !important;
+    box-shadow: none !important;
+}
+
+
+.dt-bulk-action-button {
+    margin: 10px 10px 10px 0px;
+    border-radius: 0px 8px 8px 0px;
+    border-left: none;
+}
+
+/*TOOL BAR*/
+.dt-toolbar {
+    margin-bottom: 14px;
+    min-height: 60px;
+    position: relative;
+    width: 99%;
+    border-radius: 30px;
+    z-index: 1;
+}
+
+
+.IsAppend .select2-results__option {
+    padding: 0px 4px;
+}
+
+.alertify {
+    z-index: 999999 !important;
+    position:absolute;
+}
+
+
+table#datatable-claim-entitlement-summary tbody tr th {
+    font-size:12px;
+    font-weight:bold;
+    border:none;
+}
+
+.employeeDocumentLetter span {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid #000;
+    text-align: center;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+/*for filter form    */
+.dataTables_filter .btn-filter{
+    background-color: white;
+    float: right;
+    border-radius: 5px;
+    border-color: lightgray;
+    margin-left: 5px;
+}
+
+.cards tbody tr {
+    float: left;
+    /* width: 28rem; */
+    margin: 1rem;
+    /* border: 0.0625rem solid rgba(0, 0, 0, .125); */
+    border-radius: .25rem;
+    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+ }
+ 
+ .cards tbody td {
+    display: block;
+ }
+ 
+ .cards thead {
+    display: none;
+ }
+ 
+ .cards td:before {
+    content: attr(data-label);
+    position: relative;
+    float: left;
+    color: #808080;
+    min-width: 4rem;
+    margin-left: 0;
+    margin-right: 1rem;
+    text-align: left;   
+ }
+
+ .cards .avatar {
+    width: 150px;
+    height: 150px;
+    margin: 15px;
+ }

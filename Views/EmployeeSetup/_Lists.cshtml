@@ -1,0 +1,54 @@
+﻿@using BookingSystem.Models
+@model List<EmployeeModel>
+@{
+    Layout = null;
+}
+
+<!-- Barbershop Staff Table Container -->
+<div class="p-4">
+
+    <!-- Barbershop Staff Table -->
+    <div class="table-responsive">
+        <table class="table barbershop-table" cellspacing="0" width="100%" id="employeeTable">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center" style="width: 60px;">
+                        <i class="fas fa-image"></i>
+                    </th>
+                    <th scope="col" class="sortable" data-sort="name">
+                        <i class="fas fa-user me-2"></i>Nama Kakitangan <i class="fas fa-sort ms-1"></i>
+                    </th>
+                    <th scope="col" class="sortable" data-sort="role">
+                        <i class="fas fa-briefcase me-2"></i>Jawatan <i class="fas fa-sort ms-1"></i>
+                    </th>
+                    <th scope="col" class="sortable" data-sort="phone">
+                        <i class="fas fa-phone me-2"></i>Hubungan <i class="fas fa-sort ms-1"></i>
+                    </th>
+                    <th scope="col" class="sortable" data-sort="specialty">
+                        <i class="fas fa-cut me-2"></i>Kepakaran <i class="fas fa-sort ms-1"></i>
+                    </th>
+                    <th scope="col" class="sortable" data-sort="status">
+                        <i class="fas fa-circle me-2"></i>Status <i class="fas fa-sort ms-1"></i>
+                    </th>
+                    <th scope="col" class="sortable" data-sort="experience">
+                        <i class="fas fa-calendar me-2"></i>Pengalaman <i class="fas fa-sort ms-1"></i>
+                    </th>
+                    <th scope="col" class="text-center" style="width: 150px;">
+                        <i class="fas fa-cogs me-2"></i>Tindakan
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="employeeTableBody">
+                <!-- Employees will be loaded here via JavaScript -->
+                <tr>
+                    <td colspan="8" class="text-center py-4">
+                        <i class="fas fa-spinner fa-spin fa-2x mb-3"></i>
+                        <p class="text-muted">Memuatkan senarai kakitangan...</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

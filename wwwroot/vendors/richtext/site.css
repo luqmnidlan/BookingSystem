@@ -1,0 +1,25 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* textarea {
+    background-color:#FAFAFA;
+    border:#EFEFEF solid 1px;
+    color:#333;
+    height:150px;
+    width:100%;
+} */
+
+
+/* richtext custom style */
+.richText ul {
+    list-style: lower-roman;
+}
+
+.richText ol {
+    list-style: circle;
+}

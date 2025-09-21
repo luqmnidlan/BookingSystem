@@ -1,0 +1,50 @@
+﻿.my-custom-scrollbar {
+    position: relative;
+    height: 300px;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}
+.modal-loading {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba( 255, 255, 255, 255 ) url('HRX70.png') 50% 50% no-repeat;
+}
+
+/* When the body has the loading class, we turn
+    the scrollbar off with overflow:hidden */
+body.loading .modal-loading {
+    overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+    modal element will be visible */
+body.loading .modal-loading {
+    display: block;
+}
+
+/*.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(https://j2n9a3i8.stackpathcdn.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff;
+}*/
+
+
+.selected {
+    background: "#dafcff";
+    color: "#08699f";
+    font-weight: "500"
+}
+

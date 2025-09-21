@@ -1,0 +1,673 @@
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<!-- FontAwesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<!-- Alertify CSS -->
+<link href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" rel="stylesheet" />
+<!-- Custom Barbershop CSS -->
+<link href="~/css/customed.css" rel="stylesheet" />
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Alertify JS -->
+<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+@model List<BookingSystem.Models.ServiceModel>
+@{
+    ViewData["Title"] = "Pengurusan Perkhidmatan - Amm Barbershop";
+}
+
+<!-- Theme Switcher -->
+<div class="theme-switcher">
+    <div class="theme-option theme-bg-1 active" data-theme="theme-bg-1" style="background: linear-gradient(45deg, #667eea, #764ba2);" title="Barbershop - Blue Theme"></div>
+    <div class="theme-option theme-bg-2" data-theme="theme-bg-2" style="background: linear-gradient(45deg, #56ab2f, #a8e6cf);" title="Barbershop - Green Theme"></div>
+    <div class="theme-option theme-bg-3" data-theme="theme-bg-3" style="background: linear-gradient(45deg, #ff9a9e, #fecfef);" title="Barbershop - Pink Theme"></div>
+    <div class="theme-option theme-bg-4" data-theme="theme-bg-4" style="background: linear-gradient(45deg, #4facfe, #00f2fe);" title="Barbershop - Cyan Theme"></div>
+</div>
+
+<!-- Services Management Section -->
+<div class="services-management-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Header -->
+                <div class="services-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="d-flex align-items-center mb-2">
+                                <a href="/" class="btn btn-sm btn-outline-light me-3">
+                                    <i class="fas fa-home me-1"></i>Utama
+                                </a>
+                                <h2 class="mb-0"><i class="fas fa-cut me-3"></i>Pengurusan Perkhidmatan</h2>
+                            </div>
+                            <p class="subtitle">Urus perkhidmatan dan harga barbershop anda</p>
+                        </div>
+                        <div class="d-flex gap-3">
+                            <button type="button" class="btn btn-barbershop" id="addServiceBtn">
+                                <i class="fas fa-plus me-2"></i>Tambah Perkhidmatan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services List -->
+                <div class="services-list-container">
+                    <div class="services-header-list">
+                        <div class="row align-items-center">
+                            <div class="col-md-2">
+                                <strong>Nama Perkhidmatan</strong>
+                            </div>
+                            <div class="col-md-2">
+                                <strong>Kategori</strong>
+                            </div>
+                            <div class="col-md-2">
+                                <strong>Harga (RM)</strong>
+                            </div>
+                            <div class="col-md-2">
+                                <strong>Tempoh</strong>
+                            </div>
+                            <div class="col-md-2">
+                                <strong>Status</strong>
+                            </div>
+                            <div class="col-md-2">
+                                <strong>Tindakan</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="servicesList" class="services-list">
+                        <!-- Services will be loaded here via JavaScript -->
+                        <div class="text-center text-muted py-4">
+                            <i class="fas fa-spinner fa-spin fa-3x mb-3"></i>
+                            <p>Memuatkan senarai perkhidmatan...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add/Edit Service Modal -->
+<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="serviceModalLabel">
+                    <i class="fas fa-cut me-2"></i>Tambah Perkhidmatan Baru
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="serviceForm">
+                    <input type="hidden" id="serviceId" name="Id" value="0">
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="serviceName" class="form-label">Nama Perkhidmatan *</label>
+                            <input type="text" class="form-control" id="serviceName" name="Name" required>
+                            <div class="invalid-feedback">Sila masukkan nama perkhidmatan.</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="serviceCategory" class="form-label">Kategori *</label>
+                            <select class="form-select" id="serviceCategory" name="Category" required>
+                                <option value="">Pilih Kategori</option>
+                                <option value="Perkhidmatan Rambut">Perkhidmatan Rambut</option>
+                                <option value="Perkhidmatan Janggut">Perkhidmatan Janggut</option>
+                                <option value="Perkhidmatan Premium">Perkhidmatan Premium</option>
+                                <option value="Perkhidmatan Gaya">Perkhidmatan Gaya</option>
+                                <option value="Penyelenggaraan">Penyelenggaraan</option>
+                            </select>
+                            <div class="invalid-feedback">Sila pilih kategori.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="serviceDescription" class="form-label">Penerangan</label>
+                        <textarea class="form-control" id="serviceDescription" name="Description" rows="3" placeholder="Terangkan perkhidmatan..."></textarea>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="servicePrice" class="form-label">Harga (RM) *</label>
+                            <input type="number" class="form-control" id="servicePrice" name="Price" step="0.01" min="0.01" max="1000" placeholder="0.00" required>
+                            <div class="invalid-feedback">Sila masukkan harga yang sah.</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="serviceDuration" class="form-label">Tempoh (minit) *</label>
+                            <input type="number" class="form-control" id="serviceDuration" name="Duration" min="5" max="300" required>
+                            <div class="invalid-feedback">Sila masukkan tempoh yang sah.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="serviceIsActive" name="IsActive" checked>
+                            <label class="form-check-label" for="serviceIsActive">
+                                Perkhidmatan Aktif
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-2"></i>Batal
+                </button>
+                <button type="button" class="btn btn-barbershop" id="saveServiceBtn">
+                    <i class="fas fa-save me-2"></i>Simpan Perkhidmatan
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    (function() {
+        // Ensure jQuery is loaded before proceeding
+        if (typeof $ === 'undefined') {
+            console.error('jQuery is not loaded!');
+            alert('jQuery failed to load. Please refresh the page.');
+            return;
+        }
+        
+        $(document).ready(function() {
+            console.log('Services page loaded successfully');
+            console.log('jQuery version:', $.fn.jquery);
+
+            // Theme Switcher Functionality
+            $('.theme-option').click(function() {
+                console.log('Theme option clicked');
+                $('.theme-option').removeClass('active');
+                $(this).addClass('active');
+                
+                var themeClass = $(this).data('theme');
+                console.log('Switching to theme:', themeClass);
+                
+                $('body').removeClass('theme-bg-1 theme-bg-2 theme-bg-3 theme-bg-4');
+                $('body').addClass(themeClass);
+                
+                localStorage.setItem('barbershop-theme', themeClass);
+            });
+
+            // Load saved theme
+            var savedTheme = localStorage.getItem('barbershop-theme');
+            if (savedTheme) {
+                console.log('Loading saved theme:', savedTheme);
+                $('body').addClass(savedTheme);
+                $('.theme-option').removeClass('active');
+                $('.theme-option[data-theme="' + savedTheme + '"]').addClass('active');
+            } else {
+                console.log('No saved theme found, using default');
+            }
+
+            // Load services on page load
+            loadServices();
+
+            // Add Service Button
+            $('#addServiceBtn').click(function() {
+                console.log('Add service button clicked');
+                
+                // First prompt for master password
+                alertify.prompt('Kata Laluan Master', 'Masukkan kata laluan master untuk menambah perkhidmatan:', '', 
+                    function(evt, value) {
+                        if (value === 'admin123') {
+                            // Password correct, proceed with add
+                            $('#serviceModalLabel').html('<i class="fas fa-cut me-2"></i>Tambah Perkhidmatan Baru');
+                            $('#serviceForm')[0].reset();
+                            $('#serviceId').val('0');
+                            $('#serviceModal').modal('show');
+                        } else {
+                            alertify.error('Kata laluan master tidak betul!');
+                        }
+                    },
+                    function(evt) {
+                        // User cancelled password prompt
+                        alertify.message('Operasi dibatalkan');
+                    }
+                ).set('type', 'password');
+            });
+
+            // Edit Service Button - Use event delegation for dynamically created buttons
+            $(document).on('click', '.edit-service-btn', function() {
+                var serviceId = $(this).data('service-id');
+                console.log('Edit service clicked for ID:', serviceId);
+                
+                // First prompt for master password
+                alertify.prompt('Kata Laluan Master', 'Masukkan kata laluan master untuk mengedit perkhidmatan:', '', 
+                    function(evt, value) {
+                        if (value === 'admin123') {
+                            // Password correct, proceed with edit
+                            // Fetch service data from server
+                            $.ajax({
+                                url: '/Services/GetServices',
+                                type: 'GET',
+                                success: function(response) {
+                                    if (response.success) {
+                                        var service = response.services.find(s => s.id === serviceId);
+                                        if (service) {
+                                            // Populate the form
+                                            $('#serviceId').val(service.id);
+                                            $('#serviceName').val(service.name);
+                                            $('#serviceDescription').val(service.description || '');
+                                            $('#servicePrice').val(service.price);
+                                            $('#serviceDuration').val(service.duration);
+                                            $('#serviceCategory').val(service.category);
+                                            $('#serviceIsActive').prop('checked', service.isActive);
+                                            
+                                            // Change modal title and button
+                                            $('#serviceModalLabel').html('<i class="fas fa-edit me-2"></i>Edit Perkhidmatan');
+                                            $('#serviceModal').modal('show');
+                                        }
+                                    }
+                                },
+                                error: function(xhr, status, error) {
+                                    console.error('Error fetching service data:', error);
+                                    alertify.error('Ralat memuatkan data perkhidmatan');
+                                }
+                            });
+                        } else {
+                            alertify.error('Kata laluan master tidak betul!');
+                        }
+                    },
+                    function(evt) {
+                        // User cancelled password prompt
+                        alertify.message('Operasi dibatalkan');
+                    }
+                ).set('type', 'password');
+            });
+
+            // Delete Service Button - Use event delegation for dynamically created buttons
+            $(document).on('click', '.delete-service-btn', function() {
+                var serviceId = $(this).data('service-id');
+                console.log('Delete service clicked for ID:', serviceId);
+                
+                // First prompt for master password
+                alertify.prompt('Kata Laluan Master', 'Masukkan kata laluan master untuk memadam perkhidmatan:', '', 
+                    function(evt, value) {
+                        if (value === 'admin123') {
+                            // Password correct, now show delete confirmation
+                            alertify.confirm('Padam Perkhidmatan', 
+                                'Adakah anda pasti mahu memadam perkhidmatan ini? Tindakan ini tidak boleh dibatalkan.',
+                                function() {
+                                    // Delete service via AJAX
+                                    $.ajax({
+                                        url: '/Services/Delete',
+                                        type: 'POST',
+                                        data: { id: serviceId },
+                                        success: function(response) {
+                                            if (response.success) {
+                                                alertify.success(response.message);
+                                                loadServices(); // Reload the services list
+                                            } else {
+                                                alertify.error(response.message);
+                                            }
+                                        },
+                                        error: function(xhr, status, error) {
+                                            console.error('Error deleting service:', error);
+                                            alertify.error('Ralat berlaku semasa memadam perkhidmatan');
+                                        }
+                                    });
+                                },
+                                function() {
+                                    alertify.message('Padam dibatalkan');
+                                }
+                            );
+                        } else {
+                            alertify.error('Kata laluan master tidak betul!');
+                        }
+                    },
+                    function(evt) {
+                        // User cancelled password prompt
+                        alertify.message('Operasi dibatalkan');
+                    }
+                ).set('type', 'password');
+            });
+
+            // Save Service Button
+            $('#saveServiceBtn').click(function() {
+                console.log('Save service button clicked');
+                
+                if (validateServiceForm()) {
+                    // Prompt for master password
+                    alertify.prompt('Kata Laluan Master', 'Masukkan kata laluan master untuk menambah/mengemas kini perkhidmatan:', '', 
+                        function(evt, value) {
+                            if (value === 'admin123') {
+                                // Password correct, proceed with save
+                                var serviceData = {
+                                    Id: $('#serviceId').val(),
+                                    Name: $('#serviceName').val(),
+                                    Description: $('#serviceDescription').val(),
+                                    Category: $('#serviceCategory').val(),
+                                    Price: parseFloat($('#servicePrice').val()),
+                                    Duration: parseInt($('#serviceDuration').val()),
+                                    IsActive: $('#serviceIsActive').is(':checked')
+                                };
+                                
+                                console.log('Service data:', serviceData);
+                                
+                                // Make AJAX call to controller
+                                var isEdit = serviceData.Id && serviceData.Id !== '0';
+                                var url = isEdit ? '/Services/Update' : '/Services/Create';
+                                
+                                $.ajax({
+                                    url: url,
+                                    type: 'POST',
+                                    contentType: 'application/json',
+                                    data: JSON.stringify(serviceData),
+                                    success: function(response) {
+                                        console.log('Service saved successfully:', response);
+                                        if (response.success) {
+                                            alertify.success(isEdit ? 'Perkhidmatan berjaya dikemas kini!' : 'Perkhidmatan berjaya ditambah!');
+                                            $('#serviceModal').modal('hide');
+                                            $('#serviceForm')[0].reset();
+                                            // Refresh the services list
+                                            loadServices();
+                                        } else {
+                                            alertify.error(response.message || 'Ralat berlaku semasa menyimpan perkhidmatan.');
+                                        }
+                                    },
+                                    error: function(xhr, status, error) {
+                                        console.error('Service save failed:', error);
+                                        alertify.error('Ralat berlaku semasa menghantar permintaan. Sila cuba lagi.');
+                                    }
+                                });
+                            } else {
+                                alertify.error('Kata laluan master tidak betul!');
+                            }
+                        },
+                        function(evt) {
+                            // User cancelled
+                            alertify.message('Operasi dibatalkan');
+                        }
+                    ).set('type', 'password');
+                }
+            });
+
+            // Form validation
+            function validateServiceForm() {
+                var isValid = true;
+                var requiredFields = ['serviceName', 'serviceCategory', 'servicePrice', 'serviceDuration'];
+                
+                requiredFields.forEach(function(fieldId) {
+                    var field = $('#' + fieldId);
+                    if (!field.val().trim()) {
+                        field.addClass('is-invalid');
+                        isValid = false;
+                    } else {
+                        field.removeClass('is-invalid');
+                    }
+                });
+
+                // Validate price
+                var price = parseFloat($('#servicePrice').val());
+                if (isNaN(price) || price <= 0) {
+                    $('#servicePrice').addClass('is-invalid');
+                    isValid = false;
+                }
+
+                // Validate duration
+                var duration = parseInt($('#serviceDuration').val());
+                if (isNaN(duration) || duration < 5) {
+                    $('#serviceDuration').addClass('is-invalid');
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    alertify.error('Please fill in all required fields correctly.');
+                }
+
+                return isValid;
+            }
+
+            // Remove validation classes on input
+            $('input, select, textarea').on('input change', function() {
+                $(this).removeClass('is-invalid');
+            });
+        });
+    })();
+
+    // Function to load services from database
+    function loadServices() {
+        $.ajax({
+            url: '/Services/GetServices',
+            type: 'GET',
+            success: function(response) {
+                if (response.success) {
+                    updateServicesList(response.services);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error loading services:', error);
+                $('#servicesList').html('<div class="text-center text-muted py-4"><i class="fas fa-exclamation-triangle fa-3x mb-3"></i><p>Ralat memuatkan senarai perkhidmatan</p></div>');
+            }
+        });
+    }
+
+    // Function to update the services list display
+    function updateServicesList(services) {
+        var servicesContainer = $('#servicesList');
+        
+        if (services.length === 0) {
+            servicesContainer.html('<div class="text-center text-muted py-4"><i class="fas fa-cut fa-3x mb-3"></i><p>Tiada perkhidmatan ditemui</p></div>');
+            return;
+        }
+
+        var html = '';
+        services.forEach(function(service) {
+            var statusClass = service.isActive ? 'status-active' : 'status-inactive';
+            var statusText = service.isActive ? 'Aktif' : 'Tidak Aktif';
+            
+            html += '<div class="service-item" data-service-id="' + service.id + '">';
+            html += '<div class="row align-items-center">';
+            html += '<div class="col-md-2">';
+            html += '<div class="service-name">';
+            html += '<strong>' + service.name + '</strong>';
+            html += '<small class="text-muted d-block">' + (service.description || 'Tiada penerangan') + '</small>';
+            html += '</div>';
+            html += '</div>';
+            html += '<div class="col-md-2">';
+            html += '<span class="service-category">' + service.category + '</span>';
+            html += '</div>';
+            html += '<div class="col-md-2">';
+            html += '<span class="service-price">RM ' + parseFloat(service.price).toFixed(2) + '</span>';
+            html += '</div>';
+            html += '<div class="col-md-2">';
+            html += '<span class="service-duration">' + service.duration + ' min</span>';
+            html += '</div>';
+            html += '<div class="col-md-2">';
+            html += '<span class="status-badge ' + statusClass + '">' + statusText + '</span>';
+            html += '</div>';
+            html += '<div class="col-md-2">';
+            html += '<div class="action-buttons">';
+            html += '<button class="btn btn-sm btn-outline-primary edit-service-btn" data-service-id="' + service.id + '">';
+            html += '<i class="fas fa-edit"></i>';
+            html += '</button>';
+            html += '<button class="btn btn-sm btn-outline-danger delete-service-btn" data-service-id="' + service.id + '">';
+            html += '<i class="fas fa-trash"></i>';
+            html += '</button>';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+        });
+
+        servicesContainer.html(html);
+    }
+</script>
+
+<style>
+/* Services Management Styles */
+.services-management-section {
+    padding: 40px 0;
+    min-height: 100vh;
+}
+
+.services-header {
+    background: linear-gradient(135deg, var(--barbershop-primary), #34495e);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.services-header h2 {
+    color: white;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.services-header .subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.services-list-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.services-header-list {
+    background: linear-gradient(135deg, var(--barbershop-primary), #34495e);
+    color: white;
+    padding: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.services-list {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.service-item {
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.service-item:last-child {
+    border-bottom: none;
+}
+
+.service-item:hover {
+    background: #f8f9fa;
+    transform: translateX(5px);
+}
+
+.service-name strong {
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.service-name small {
+    color: #6c757d;
+    font-size: 0.85rem;
+}
+
+.service-category {
+    color: var(--barbershop-secondary);
+    font-weight: 600;
+    background: rgba(231, 76, 60, 0.1);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.service-price {
+    color: var(--barbershop-primary);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.service-duration {
+    color: #495057;
+    font-weight: 500;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-active {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-inactive {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.action-buttons .btn {
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+/* Modal Styles */
+.modal-content {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--barbershop-primary), #34495e);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    border-bottom: none;
+}
+
+.modal-title {
+    color: white;
+    font-weight: 600;
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+/* Mobile Responsive */
+@@media (max-width: 768px) {
+    .services-header-list {
+        display: none;
+    }
+    
+    .service-item .row {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    
+    .service-item .col-md-2 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .service-item .col-md-2:last-child {
+        margin-bottom: 0;
+    }
+    
+    .action-buttons {
+        justify-content: flex-start;
+    }
+}
+</style>
